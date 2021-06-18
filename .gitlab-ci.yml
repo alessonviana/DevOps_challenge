@@ -1,0 +1,56 @@
+image:
+  name: hashicorp/terraform:0.14.7
+  entrypoint:
+    - /usr/bin/env
+
+cache:
+  paths:
+    - .terraform/
+    
+stages:
+  - plan
+  - apply
+  - deploy
+  - destroy
+  - destroy-config
+
+fmt-check:
+  stage: lint
+  script:
+    - terraform fmt -recursive -check infra/
+  
+
+configure-remote-state-bucket:
+  stage: configure
+  image: registry.gitlab.com/gitlab-org/cloud-deploy/aws-base:latest 
+  script:
+    - aws s3api create-bucket --bucket terraform-state-challange-backend
+  only:
+    - master
+
+plan:
+  stage: plan
+  script:
+    - terraform init infra/
+    - terraform plan infra/
+
+apply:
+  stage: apply
+  script:
+    - terraform init infra/
+    - echo "yes" | terraform apply infra/
+
+
+destroy-infra:
+  stage: destroy
+  script:
+    - terraform init infra/
+    - echo "yes" | terraform destroy infra/
+  when: manual
+
+destroy-infra-state-config:
+  stage: destroy-config
+  image: registry.gitlab.com/gitlab-org/cloud-deploy/aws-base:latest 
+  script:
+    - aws s3 rb s3://terraform-state-challange-backend --force
+  when: manual
