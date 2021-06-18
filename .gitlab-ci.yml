@@ -7,12 +7,12 @@ cache:
   paths:
     - .terraform/
     
-stages:
-  - plan
-  - apply
-  - deploy
-  - destroy
-  - destroy-config
+#stages:
+#  - plan
+#  - apply
+#  - deploy
+#  - destroy
+#  - destroy-config
 
 fmt-check:
   stage: lint
