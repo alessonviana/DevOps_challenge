@@ -5,6 +5,6 @@ RUN GOOS=linux GOARCH=amd64 go build -o app
 
 FROM alpine:3.12.0
 WORKDIR /
-EXPOSE 8080/tcp
+EXPOSE 80/tcp
 COPY --from=builder /build_result/app .
 CMD [ "./app" ]
