@@ -1,0 +1,90 @@
+image:
+  name: hashicorp/terraform:0.14.7
+  entrypoint:
+    - /usr/bin/env
+
+cache:
+  paths:
+    - .terraform/
+    - ansible/
+
+stages:
+  - build
+  - lint
+  - configure
+  - plan
+  - apply
+  - deploy
+  - destroy
+  - destroy-config
+
+docker-image-build:
+  image: docker:latest
+  stage: build
+  services:
+    - docker:dind
+  before_script:
+    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
+  script:
+    - ls
+    - docker build -t "$CI_REGISTRY_IMAGE" .
+    - docker push "$CI_REGISTRY_IMAGE"
+
+fmt-check:
+  stage: lint
+  script:
+    - terraform fmt -recursive -check infra/
+  
+
+configure-remote-state-bucket:
+  stage: configure
+  image: registry.gitlab.com/gitlab-org/cloud-deploy/aws-base:latest 
+  script:
+    - aws s3api create-bucket --bucket terraform-state-challenge-sre
+  only:
+    - master
+
+plan:
+  stage: plan
+  script:
+    - terraform init infra/
+    - terraform plan infra/
+
+apply:
+  stage: apply
+  script:
+    - terraform init infra/
+    - echo "yes" | terraform apply infra/
+
+  artifacts:
+    expire_in: 1 day
+    paths:
+     - ./ansible/inventory
+     - ./ansible/deployer.pem
+  only:
+    - master
+
+deploy:
+  image: willhallonline/ansible:alpine
+  stage: deploy
+  script:
+    - mkdir -p ~/.ssh
+    - cp ./ansible/deployer.pem ~/.ssh/deployer.pem
+    - chmod 0600 ~/.ssh/deployer.pem
+    - ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook ./ansible/deploy.yaml -i ./ansible/inventory -u ubuntu --key-file "~/.ssh/deployer.pem" --extra-vars "docker_image=$CI_REGISTRY_IMAGE"
+  only:
+    - master
+
+destroy-infra:
+  stage: destroy
+  script:
+    - terraform init infra/
+    - echo "yes" | terraform destroy infra/
+  when: manual
+
+destroy-infra-state-config:
+  stage: destroy-config
+  image: registry.gitlab.com/gitlab-org/cloud-deploy/aws-base:latest 
+  script:
+    - aws s3 rb s3://terraform-state-challenge-sre --force
+  when: manual
