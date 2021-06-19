@@ -13,8 +13,7 @@ steps:
     AWS_SECRET_ACCESS_KEY:
       from_secret: aws_secret
   commands:
-  - cd ./infra
-  - terraform init 
+  - terraform init ./infra
   
 - name: create aws infra
   image: mateusmuller2/ansibleandterraform:latest
@@ -24,8 +23,9 @@ steps:
     AWS_SECRET_ACCESS_KEY:
       from_secret: aws_secret
   commands:
-  - terraform plan ./infra
-  - terraform apply -auto-approve ./infra
+  - cd ./infra
+  - terraform plan 
+  - terraform apply -auto-approve 
   
 #- name: apply ansible playbook
 #  image: mateusmuller2/ansibleandterraform:latest
