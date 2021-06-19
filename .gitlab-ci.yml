@@ -8,26 +8,25 @@ cache:
     - .terraform/
     
 stages:
-#  - lint
+  - lint
   - configure
   - plan 
   - apply
   - destroy
   - destroy-config
 
-#fmt-check:
-  #stage: lint
-  #script:
-  #  - terraform fmt -recursive -check infra/
+fmt-check:
+  stage: lint
+  script:
+    - terraform fmt -recursive -check infra/
   
 
 configure-remote-state-bucket:
   stage: configure
-  #image: registry.gitlab.com/gitlab-org/cloud-deploy/aws-base:latest 
-  #script:
-  #  - aws s3api create-bucket --bucket terraform-state-challange-backend
+  image: registry.gitlab.com/gitlab-org/cloud-deploy/aws-base:latest 
   script:
-    - sh make create_config  
+    - aws s3api create-bucket --bucket terraform-state-challange-backend
+ 
   only:
     - master
 
