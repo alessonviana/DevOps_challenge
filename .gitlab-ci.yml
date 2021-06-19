@@ -23,7 +23,7 @@ stages:
 
 configure-remote-state-bucket:
   stage: configure
-  image: registry.gitlab.com/gitlab-org/cloud-deploy/aws-base:latest 
+  #image: registry.gitlab.com/gitlab-org/cloud-deploy/aws-base:latest 
   script:
     - aws s3api create-bucket --bucket terraform-state-challange-backend
   only:
