@@ -23,8 +23,8 @@ steps:
     AWS_SECRET_ACCESS_KEY:
       from_secret: aws_secret
   commands:
-  - terraform init
   - cd ./infra
+  - terraform init
   - terraform plan 
   - terraform apply -auto-approve 
   
