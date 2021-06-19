@@ -24,7 +24,7 @@ steps:
       from_secret: aws_secret
   commands:
   - terraform plan ./infra
-  - terraform apply -auto-approve
+  - terraform apply -auto-approve ./infra
   
 #- name: apply ansible playbook
 #  image: mateusmuller2/ansibleandterraform:latest
