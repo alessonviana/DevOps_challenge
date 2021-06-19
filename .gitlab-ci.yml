@@ -8,17 +8,17 @@ cache:
     - .terraform/
     
 stages:
-  - lint
+#  - lint
   - configure
   - plan 
   - apply
   - destroy
   - destroy-config
 
-fmt-check:
-  stage: lint
-  script:
-    - terraform fmt -recursive -check infra/
+#fmt-check:
+#  stage: lint
+#  script:
+#    - terraform fmt -recursive -check infra/
   
 
 configure-remote-state-bucket:
