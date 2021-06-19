@@ -13,6 +13,7 @@ steps:
     AWS_SECRET_ACCESS_KEY:
       from_secret: aws_secret
   commands:
+  - cd ./infra
   - terraform init 
   
 - name: create aws infra
@@ -24,7 +25,6 @@ steps:
       from_secret: aws_secret
   commands:
   - cd ./infra
-  - terraform init
   - terraform plan 
   - terraform apply -auto-approve 
   
