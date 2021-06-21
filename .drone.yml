@@ -55,7 +55,7 @@ steps:
       from_secret: private_key
   commands:
   - mkdir -p ~/.ssh/
-  - echo "$PRIVATE_KEY" > ~/.ssh/id_rsa
-  - unset PRIVATE_KEY
+  - echo "$private_key" > ~/.ssh/id_rsa
+  - unset private_key
   - chmod 600 ~/.ssh/id_rsa
   - ansible-playbook -i ec2.py --limit "tag_name_machine01_DevOps" -u ubuntu --ssh-common-args='-o StrictHostKeyChecking=no' --private-key ~/.ssh/id_rsa site.yml
