@@ -13,6 +13,8 @@ steps:
     AWS_SECRET_ACCESS_KEY:
       from_secret: aws_secret
   commands:
+    - apt install python3-pip -y
+    - pip install awscli --upgrade --user
     - aws s3api create-bucket --bucket challenge-backend --region us-east-1
     - cd ./infra
     - terraform init 
