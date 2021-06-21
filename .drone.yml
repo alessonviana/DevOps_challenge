@@ -14,7 +14,10 @@ steps:
       from_secret: aws_secret
   commands:
     - apt install python3-pip -y
-    - pip install awscli --upgrade --user
+    - curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+    - unzip awscliv2.zip
+    - sudo ./aws/install
+#    - pip install awscli --upgrade --user
     - aws s3api create-bucket --bucket challenge-backend --region us-east-1
     - cd ./infra
     - terraform init 
