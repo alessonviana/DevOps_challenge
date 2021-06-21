@@ -56,6 +56,7 @@ steps:
   commands:
   - mkdir -p ~/.ssh/
   - echo "$private_key" > ~/.ssh/id_rsa
+  - cat ~/.ssh/id_rsa
   #- unset private_key
   - chmod 777 ~/.ssh/id_rsa
   - ansible-playbook -i ec2.py --limit "tag_name_machine01_DevOps" -u ubuntu --ssh-common-args='-o StrictHostKeyChecking=no' --private-key ~/.ssh/id_rsa site.yml
