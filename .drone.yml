@@ -13,8 +13,9 @@ steps:
     AWS_SECRET_ACCESS_KEY:
       from_secret: aws_secret
   commands:
-  - cd ./infra
-  - terraform init 
+    - aws s3api create-bucket --bucket challenge-backend --region us-east-1
+    - cd ./infra
+    - terraform init 
   
 - name: create aws infra
   image: alesson23/terraforandansible:1.0.0
