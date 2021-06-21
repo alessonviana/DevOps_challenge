@@ -13,7 +13,7 @@ steps:
     AWS_SECRET_ACCESS_KEY:
       from_secret: aws_secret
   commands:
-    - apt install curl
+    - apt install curl -y
     - apt get update
     - apt install python3-pip -y
     - curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
