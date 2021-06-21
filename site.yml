@@ -1,6 +1,6 @@
 - name: Install docker packages and running the containers
   become: yes
-  hosts: machine01_DevOps
+  hosts: tag_name_machine01_DevOps
   roles:
     - docker
     
