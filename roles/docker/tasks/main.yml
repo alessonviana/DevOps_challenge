@@ -19,5 +19,5 @@
     name: "{{ item }}"
   loop: "{{ docker_packages }}"
 
-- name: pull of image web aplication
+- name: pull web aplication image
   command: docker run -d -p 8080:80 alesson23/helloword_go:1.0.0
