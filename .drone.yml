@@ -19,6 +19,7 @@ steps:
     - curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
     - unzip awscliv2.zip
     - ./aws/install
+    - aws --version
     - aws s3api create-bucket --bucket challenge-backend --region us-east-1
 
 - name: initialize aws plugin for terraform
@@ -55,7 +56,6 @@ steps:
       from_secret: private_key
   commands:
   - mkdir -p ~/.ssh/
-  - echo "$PRIVATE_KEY"
   - echo "$PRIVATE_KEY" > ~/.ssh/id_rsa
   - chmod 777 ~/.ssh/id_rsa
   #- cat ~/.ssh/id_rsa
