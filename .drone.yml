@@ -61,5 +61,7 @@ steps:
   - cat ~/.ssh/id_rsa
   #- unset private_key
   - chmod 777 ~/.ssh/id_rsa
-  - ansible -m ping tag_name_machine01_DevOps
-  - ansible-playbook -i ec2.py --limit "tag_name_machine01_DevOps" -u ubuntu --ssh-common-args='-o StrictHostKeyChecking=no' --private-key ~/.ssh/id_rsa site.yml
+  - ssh -i ~/.ssh/id_rsa ubuntu@34.226.234.87
+#  - ansible -m ping tag_name_machine01_DevOps
+#  - ansible -i ec2.py us-east-1 -m ping
+#  - ansible-playbook -i ec2.py --limit "tag_name_machine01_DevOps" -u ubuntu --ssh-common-args='-o StrictHostKeyChecking=no' --private-key ~/.ssh/id_rsa site.yml
