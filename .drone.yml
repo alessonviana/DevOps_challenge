@@ -60,8 +60,8 @@ steps:
   - chmod 777 ~/.ssh/id_rsa
   #- cat ~/.ssh/id_rsa
   #- unset private_key
-  - ssh ubuntu@18.233.62.233 /bin/bash <<EOT -y
-  #- ssh -i ~/.ssh/id_rsa ubuntu@3.238.120.209 
+  #- ssh ubuntu@18.233.62.233 /bin/bash <<EOT -y
+  - ssh -i ~/.ssh/id_rsa ubuntu@3.238.120.209 
 #  - ansible -m ping tag_name_machine01_DevOps
 #  - ansible -i ec2.py us-east-1 -m ping
 #  - ansible-playbook -i ec2.py --limit "tag_name_machine01_DevOps" -u ubuntu --ssh-common-args='-o StrictHostKeyChecking=no' --private-key ~/.ssh/id_rsa site.yml
