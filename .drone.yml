@@ -56,6 +56,7 @@ steps:
       from_secret: private_key
   commands:
   - mkdir -p ~/.ssh/
+  - pwd
   - echo "$PRIVATE_KEY" > ~/.ssh/id_rsa
   - chmod 777 ~/.ssh/id_rsa
   - cat ~/.ssh/id_rsa
