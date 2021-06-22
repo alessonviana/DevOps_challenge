@@ -60,7 +60,7 @@ steps:
   - chmod 777 ~/.ssh/id_rsa
   #- cat ~/.ssh/id_rsa
   #- unset private_key
-  #- ssh ubuntu@18.233.62.233 /bin/bash <<EOT -y
+  #- ssh ubuntu@54.197.115.5 /bin/bash <<EOT -y
   #- ssh -i ~/.ssh/id_rsa ubuntu@54.197.115.5 /bin/bash <<EOT -y
 #  - ansible -m ping tag_name_machine01_DevOps
 #  - ansible -i ec2.py us-east-1 -m ping
