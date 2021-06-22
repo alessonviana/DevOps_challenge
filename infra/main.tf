@@ -5,7 +5,8 @@ provider "aws" {
 
 resource "aws_key_pair" "challenge_key" {
  
-  public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCkT8O3l2hC3ibozCpEeZmBOzZmZyxTBWUfSSmDaNoKV92BirOd7TmK4jePni0UAadAlh18NYBSxQsl85vt8VMdK7z8B0xqApt5PeVTwOUiLPV5+U1ApwWbbc0KbiASqkXAyXDKWldhcZGbZWnqkFwR9NOP7+Nf+OwuuxNTQ3Vg/l/PXSXNpSUBHXes6e3XERGoT1d0fvofJajiyqiM0kEXx57V8CVTOKvXzu1/A9Ute+8uT2k/KXfP+sKj5dnyg73Itf8zxRd1zbdwk+ydKUwZQpLTRYEp4MYEZsliZgvuUhnWqL8QoHPeObXqQPcsfxWMPB/GjvzVR8a3cs6ppP3p"  
+  public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCQag1f+EZQt+KpUu8HMztUaNzBvs01H98bvyWjGlC2dSbaA6Z1BeX7OSYE36DruJk3SxSRZga8TcmDdg83oUf/RFtZe/VniWAD5PFZ5LZZX3jM6VsQrYH8ZcwpY6PpiGX8x83UCZR23pg0PdtoYnI6FVQVliiksY/ZC0zbR6KcfaTgCMeqc17cvbpsOlvmMhTBfO7DEu45myNs4ccW1WKBfOc2RmFFO4a67o/JEZpQI7lut4GvbUFfRCrqDb61jHTlTFEjAk9c8W8TS9zadGlsWdKzwAbhhgXjZgHg+plDAOmWvqF9VLW+kLnJ9xYUp0T33AASRLTsdGpqPf/j+MYR teste_chalenge2
+"  
 }
 
 resource "aws_instance" "challenge_DevOps_Machine" {
