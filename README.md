@@ -50,13 +50,12 @@ Default region name [None]: <Your region>
 
 ### 3 - Test your web aplication: 
 
-### Open your browser and enter your public ip provided in the terraform pipeline. You should get a return from the web application with a hello world.
-
+- Open your browser and enter your public ip provided in the terraform pipeline. You should get a return from the web application with a hello world.
 
 
 
 ### 4 - Test your monitoring.
-### Open your browser and enter your public ip provided in the terraform pipeline more the aplication port. In this case, we will use netdata that runs on port 19999.
+- Open your browser and enter your public ip provided in the terraform pipeline more the aplication port. In this case, we will use netdata that runs on port 19999.
 
 
 
