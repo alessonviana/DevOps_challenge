@@ -40,7 +40,7 @@ Default region name [None]: <Your region>
 - 2.2 - Create Environment variables:
 
 ![ec2-ic](https://docs.drone.io/screenshots/repository_secrets.png)
-### You will need to castrate three environment variables.
+### You will need to create three environment variables.
 
 - Your AWS access key
 - Your AWS secret key
