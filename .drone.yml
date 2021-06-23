@@ -108,6 +108,12 @@ steps:
       from_secret: aws_access
     AWS_SECRET_ACCESS_KEY:
   commands:
+  - apt install curl -y
+  - apt update
+  - apt install python3-pip -y
+  - curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+  - unzip awscliv2.zip
+  - ./aws/install
   - aws s3 rb s3://challenge-backend --force
   when:
     branch:
