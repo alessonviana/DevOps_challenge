@@ -25,7 +25,8 @@ Default region name [None]: <Your region>
 
 ### 2 - Running pipeline with Drone CI
 ### 2.1 - Create Environment variables:
-!(https://docs.drone.io/screenshots/repository_secrets.png)
+
+![ec2-ic](https://docs.drone.io/screenshots/repository_secrets.png)
 ### You will need to castrate three environment variables.
 
 - Your AWS access key
