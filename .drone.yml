@@ -61,6 +61,20 @@ steps:
   - cat ~/.ssh/id_rsa
   - unset private_key
   - chmod 777 ./ec2.py
-  - ./ec2.py --list
-  #- echo "yes" | ssh -i "~/.ssh/id_rsa" ubuntu@100.25.149.158 -o StrictHostKeyChecking=no
   - ansible-playbook -i ec2.py --limit "tag_Name_machine01_DevOps" -u ubuntu --ssh-common-args='-o StrictHostKeyChecking=no' --private-key ~/.ssh/id_rsa site.yml
+
+
+- name: create aws infra
+  image: alesson23/terraforandansible:1.0.0
+  environment:
+    AWS_ACCESS_KEY_ID:
+      from_secret: aws_access
+    AWS_SECRET_ACCESS_KEY:
+      from_secret: aws_secret
+  commands:
+  - cd ./infra
+  - terraform destroy -auto-approve
+  when:
+    branch:
+      - delete_infra
+    
