@@ -2,8 +2,7 @@
 - name: Install docker prereqs
   apt:
     update_cache: yes
-    name: "{{ item }}"
-  loop: "{{ docker_prereqs_packages }}"
+    pkg: "{{ docker_prereqs_packages }}"
 
 - name: Add GPG key
   apt_key:
@@ -16,8 +15,7 @@
 
 - name: Install docker
   apt:
-    name: "{{ item }}"
-  loop: "{{ docker_packages }}"
+    pkg: "{{ docker_packages }}"
 
 - name: pull web aplication image
   command: docker run -d -p 8080:80 alesson23/helloword_go:1.0.0
