@@ -24,7 +24,9 @@ Default region name [None]: <Your region>
 ```
 
 ### 2 - Running pipeline with Drone CI
-### 2.1 - Create Environment variables:
+
+### 2.1 - Sync your drone.io account with your project on GitHub.
+### 2.2 - Create Environment variables:
 
 ![ec2-ic](https://docs.drone.io/screenshots/repository_secrets.png)
 ### You will need to castrate three environment variables.
@@ -33,8 +35,8 @@ Default region name [None]: <Your region>
 - Your AWS secret key
 - Your private so you will to use for conecting on instance
 
-### 2.2 - You will need to create your pipeline configuration in a file named .drone.yml. This file should be at the root of your project on GitHub.
-### 2.2 - Steps:
+### 2.3 - You will need to create your pipeline configuration in a file named .drone.yml. This file should be at the root of your project on GitHub.
+### 2.4 - Steps:
 ```bash
 - Install AWS CLI and create a bucket
 - Initialize aws plugin for terraform
@@ -53,7 +55,7 @@ Default region name [None]: <Your region>
 
 
 ### 4 - Test your monitoring.
-### Open your browser and enter your public ip provided in the terraform pipeline more the aplication port. In this case, we will use netdata that runs on port 19999
+### Open your browser and enter your public ip provided in the terraform pipeline more the aplication port. In this case, we will use netdata that runs on port 19999.
 
 
 
