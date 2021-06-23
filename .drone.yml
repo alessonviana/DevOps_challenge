@@ -24,7 +24,7 @@ steps:
   when:
     branch:
       - main 
-      
+
 - name: initialize aws plugin for terraform
   image: alesson23/terraforandansible:1.0.0
   environment:
@@ -84,6 +84,7 @@ steps:
       from_secret: aws_secret
   commands:
   - cd ./infra
+  - terraform init
   - terraform destroy -auto-approve
   when:
     branch:
