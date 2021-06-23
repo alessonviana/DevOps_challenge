@@ -11,7 +11,7 @@ resource "aws_key_pair" "challenge_key" {
 resource "aws_instance" "challenge_DevOps_Machine" {
   ami = "ami-042e8287309f5df03"
   instance_type = "t2.micro"
-  key_name = "challenge_key"
+  key_name = "challenge_DevOps"
   tags = {
     Name = "machine01_DevOps"
   }
