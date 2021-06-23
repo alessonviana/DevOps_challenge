@@ -55,11 +55,10 @@ steps:
     PRIVATE_KEY:
       from_secret: private_key
   commands:
-  - cd ~/.ssh/
+  - mkdir -p ~/.ssh/
   - echo "$PRIVATE_KEY" > ~/.ssh/id_rsa
-  - chmod 777 ~/.ssh/id_rsa
+  - chmod 600 ~/.ssh/id_rsa
   - cat ~/.ssh/id_rsa
-  - cd /drone/src
   #- unset private_key
   #- sudo ssh -i "id_rsa.pem" ubuntu@100.26.151.134 -o StrictHostKeyChecking=no
 #  - ansible -m ping tag_name_machine01_DevOps
