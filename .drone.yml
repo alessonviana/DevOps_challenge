@@ -93,7 +93,7 @@ steps:
   commands:
   - mkdir -p /home/root/.ssh/
   - echo "$PRIVATE_KEY" > /home/root/.ssh/id_rsa
-  - chmod 600 /home/root/.ssh/id_rsag
+  - chmod 600 /home/root/.ssh/id_rsa
   - cd ./infra
   - terraform init
   - terraform destroy -auto-approve
