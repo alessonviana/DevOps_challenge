@@ -11,7 +11,7 @@ provider "aws" {
 resource "aws_instance" "challenge_DevOps_Machine" {
   ami = "ami-042e8287309f5df03"
   instance_type = "t2.micro"
-  key_name = "challenge_DevOps"
+  key_name = "challange_DevOps"
   tags = {
     Name = "machine01_DevOps"
   }
