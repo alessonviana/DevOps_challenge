@@ -37,7 +37,7 @@ Default region name [None]: <Your region>
 - Your private key that you will use to connect to the instance.
 
 
-### - You will need to create your pipeline configuration in a file named .drone.yml. This file should be at the root of your project on GitHub.
+### You will need to create your pipeline configuration in a file named .drone.yml. This file should be at the root of your project on GitHub.
 
 - 2.3 - Steps:
 ```bash
@@ -46,9 +46,9 @@ Default region name [None]: <Your region>
 - Create AWS Infra
 - Apply Ansible playbook
 - Delete AWS Infra
-    Here it will be executed only when there is a commit in the delete_infra branch
+    (Here it will be executed only when there is a commit in the delete_infra branch)
 - Delete S3 bucket
-    Here it will be executed only when there is a commit in the delete_infra branch
+    (Here it will be executed only when there is a commit in the delete_infra branch)
 ```
 
 ### 3 - Test your web aplication: 
