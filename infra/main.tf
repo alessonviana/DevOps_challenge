@@ -12,10 +12,25 @@ resource "aws_instance" "challenge_DevOps_Machine" {
   ami = "ami-042e8287309f5df03"
   instance_type = "t2.micro"
   key_name = "challange_DevOps"
+    provisioner "remote-exec" {
+  inline = [
+    "echo \"SSH Connection is OK\""
+
+  ]
+  connection {
+    type        = "ssh"
+    host        = self.public_ip
+    port        = 22
+    user        = "ubuntu"
+    private_key = file("/home/root/.ssh/id_rsa")
+    agent       = false
+
+  }
+}
   tags = {
     Name = "machine01_DevOps"
   }
-  vpc_security_group_ids = ["${aws_security_group.allow-acess.id}"]
+  vpc_security_group_ids = [aws_security_group.allow-acess.id]
 }
 
 resource "null_resource" "run" {
