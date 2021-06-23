@@ -12,6 +12,21 @@ resource "aws_instance" "challenge_DevOps_Machine" {
   ami = "ami-042e8287309f5df03"
   instance_type = "t2.micro"
   key_name = "challange_DevOps"
+    provisioner "remote-exec" {
+  inline = [
+    "echo \"SSH Connection is OK\""
+
+  ]
+  connection {
+    type        = "ssh"
+    host        = self.public_ip
+    port        = 22
+    user        = "ec2-user"
+    private_key = file("~/.ssh/id_rsa")
+    agent       = false
+
+  }
+}
   tags = {
     Name = "machine01_DevOps"
   }
