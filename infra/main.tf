@@ -30,7 +30,7 @@ resource "aws_instance" "challenge_DevOps_Machine" {
   tags = {
     Name = "machine01_DevOps"
   }
-  vpc_security_group_ids = ["${aws_security_group.allow-acess.id}"]
+  vpc_security_group_ids = [aws_security_group.allow-acess.id]
 }
 
 resource "null_resource" "run" {
