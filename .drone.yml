@@ -64,7 +64,7 @@ steps:
   - ansible-playbook -i ec2.py --limit "tag_Name_machine01_DevOps" -u ubuntu --ssh-common-args='-o StrictHostKeyChecking=no' --private-key ~/.ssh/id_rsa site.yml
 
 
-- name: create aws infra
+- name: Delete aws infra
   image: alesson23/terraforandansible:1.0.0
   environment:
     AWS_ACCESS_KEY_ID:
