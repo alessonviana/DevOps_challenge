@@ -106,7 +106,7 @@ steps:
   environment:
     AWS_ACCESS_KEY_ID:
       from_secret: aws_access
-    AWS_SECRET_ACCESS_KEY:
+    AWS_SECRET_ACCESS_KEY: aws_secret
   commands:
   - apt install curl -y
   - apt update
