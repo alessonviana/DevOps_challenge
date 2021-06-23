@@ -15,7 +15,7 @@
 
 ## 1 - Running locally
 
-### 1.1 - Configure your AWS credentions
+- 1.1 - Configure your AWS credentions
 ```bash
 $ aws configure
 AWS Access Key ID [None]: <Access Key ID>
@@ -25,8 +25,9 @@ Default region name [None]: <Your region>
 
 ### 2 - Running pipeline with Drone CI
 
-### 2.1 - Sync your drone.io account with your project on GitHub.
-### 2.2 - Create Environment variables:
+- 2.1 - Sync your drone.io account with your project on GitHub.
+
+- 2.2 - Create Environment variables:
 
 ![ec2-ic](https://docs.drone.io/screenshots/repository_secrets.png)
 ### You will need to castrate three environment variables.
@@ -35,8 +36,10 @@ Default region name [None]: <Your region>
 - Your AWS secret key
 - Your private key that you will use to connect to the instance.
 
-### 2.3 - You will need to create your pipeline configuration in a file named .drone.yml. This file should be at the root of your project on GitHub.
-### 2.4 - Steps:
+
+- 2.3 - You will need to create your pipeline configuration in a file named .drone.yml. This file should be at the root of your project on GitHub.
+
+- 2.4 - Steps:
 ```bash
 - Install AWS CLI and create a bucket
 - Initialize aws plugin for terraform
