@@ -11,7 +11,7 @@ resource "aws_security_group" "allow-acess" {
     cidr_blocks = "${var.cdirs_acesso_remoto}"
   }
 
-  outgress {
+  egress {
     from_port   = 0
     to_port     = 0
     protocol    = "-1"
