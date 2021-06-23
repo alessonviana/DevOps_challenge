@@ -21,7 +21,10 @@ steps:
     - ./aws/install
     - aws --version
     - aws s3api create-bucket --bucket challenge-backend --region us-east-1
-
+  when:
+    branch:
+      - main 
+      
 - name: initialize aws plugin for terraform
   image: alesson23/terraforandansible:1.0.0
   environment:
@@ -31,7 +34,10 @@ steps:
       from_secret: aws_secret
   commands:
     - cd ./infra
-    - terraform init 
+    - terraform init
+  when:
+    branch:
+      - main 
   
 - name: create aws infra
   image: alesson23/terraforandansible:1.0.0
@@ -43,7 +49,10 @@ steps:
   commands:
   - cd ./infra
   - terraform plan 
-  - terraform apply -auto-approve 
+  - terraform apply -auto-approve
+  when:
+    branch:
+      - main
   
 - name: apply ansible playbook
   image: alesson23/terraforandansible:1.0.0
@@ -62,7 +71,9 @@ steps:
   - unset private_key
   - chmod 777 ./ec2.py
   - ansible-playbook -i ec2.py --limit "tag_Name_machine01_DevOps" -u ubuntu --ssh-common-args='-o StrictHostKeyChecking=no' --private-key ~/.ssh/id_rsa site.yml
-
+  when:
+    branch:
+      - main
 
 - name: Delete aws infra
   image: alesson23/terraforandansible:1.0.0
