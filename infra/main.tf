@@ -17,3 +17,10 @@ resource "aws_instance" "challenge_DevOps_Machine" {
   }
   vpc_security_group_ids = ["${aws_security_group.allow-acess.id}"]
 }
+
+resource "null_resource" "run" {
+  provisioner "local-exec" {
+    command = "echo EC2 Ok"
+  }
+  depends_on = [aws_instance.challenge_DevOps_Machine]
+}
