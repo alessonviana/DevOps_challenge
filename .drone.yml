@@ -97,6 +97,7 @@ steps:
       - delete_infra
 
 - name: Delete S3 bucket
+  image: alesson23/terraforandansible:1.0.0
   commands:
   - aws s3 rb s3://challenge-backend --force
   when:
