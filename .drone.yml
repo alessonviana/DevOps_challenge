@@ -92,8 +92,8 @@ steps:
       from_secret: private_key
   commands:
   - mkdir -p ~/.ssh/
-  - echo "$PRIVATE_KEY" > ~/.ssh/id_rsa
-  - chmod 600 ~/.ssh/id_rsa
+  - echo "$PRIVATE_KEY" > /home/root/.ssh/id_rsa
+  - chmod 600 /home/root/.ssh/id_rsag
   - cd ./infra
   - terraform init
   - terraform destroy -auto-approve
