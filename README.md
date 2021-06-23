@@ -33,7 +33,7 @@ Default region name [None]: <Your region>
 
 - Your AWS access key
 - Your AWS secret key
-- Your private so you will to use for conecting on instance
+- Your private key that you will use to connect to the instance.
 
 ### 2.3 - You will need to create your pipeline configuration in a file named .drone.yml. This file should be at the root of your project on GitHub.
 ### 2.4 - Steps:
@@ -50,7 +50,8 @@ Default region name [None]: <Your region>
 
 ### 3- Test your web aplication 
 
-### Open your browser and enter your public ip provided in the terraform pipeline. 
+### Open your browser and enter your public ip provided in the terraform pipeline.
+![ec2-ic](https://drive.google.com/file/d/1hJeoAXwr-llZXuYtbdEhIAFZYMlzD9Pb/view?usp=sharing) 
 ### You should get a return from the web application with a hello world.
 
 
