@@ -48,11 +48,11 @@ Default region name [None]: <Your region>
     Here it will be executed only when there is a commit in the delete_infra branch
 ```
 
-### 3 - Test your web aplication 
+### 3 - Test your web aplication: 
 
-### Open your browser and enter your public ip provided in the terraform pipeline.
+### Open your browser and enter your public ip provided in the terraform pipeline. You should get a return from the web application with a hello world.
 
-### You should get a return from the web application with a hello world.
+
 
 
 ### 4 - Test your monitoring.
