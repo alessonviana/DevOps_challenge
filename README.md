@@ -15,6 +15,7 @@ The process starts as soon as you have a change in the repository on GitHub, the
 - Docker 20.10.2
 - Python 3
 - Go 
+- AWS
 ## How does it work?
 
 - Terraform creates the AWS instances, Security Group, Volumes and a Bucket.
