@@ -46,10 +46,13 @@ steps:
       from_secret: aws_access
     AWS_SECRET_ACCESS_KEY:
       from_secret: aws_secret
+    PRIVATE_KEY:
+      from_secret: private_key
   commands:
   - mkdir -p /home/root/.ssh/
   - echo "$PRIVATE_KEY" > /home/root/.ssh/id_rsa
   - chmod 600 /home/root/.ssh/id_rsa
+  - ls /home/root/.ssh
   - cd ./infra
   - terraform plan 
   - terraform apply -auto-approve
