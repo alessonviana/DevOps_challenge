@@ -51,7 +51,7 @@ Default region name [None]: <Your region>
 ### 3- Test your web aplication 
 
 ### Open your browser and enter your public ip provided in the terraform pipeline.
-![ec2-ic](https://drive.google.com/file/d/1hJeoAXwr-llZXuYtbdEhIAFZYMlzD9Pb/view?usp=sharing) 
+![ec2-ic](https://drive.google.com/file/d/1hJeoAXwr-llZXuYtbdEhIAFZYMlzD9Pb/view) 
 ### You should get a return from the web application with a hello world.
 
 
