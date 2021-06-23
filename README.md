@@ -1,3 +1,6 @@
+## Introduction
+- In this project we will run a pipeline process of a web application written in Go.
+The process starts as soon as you have a change in the repository on GitHub, then the Drone CI will perform the steps described in the .drone.yml file.
 ## Dependencies
 - AWS account 
 - Drone.io account
@@ -12,8 +15,14 @@
 - Docker 20.10.2
 - Python 3
 - Go 
+## How does it work?
 
-## 1 - Running locally
+- Terraform creates the AWS instances, Security Group, Volumes and a Bucket.
+- Ansible installs and configure Docker.
+- Ansible pulling and runnig the container .
+- The Drone CI uses a Docker container that I have created with Terraform and Ansible there.
+
+## 1 - Running terraform locally
 
 - 1.1 - Configure your AWS credentions
 ```bash
