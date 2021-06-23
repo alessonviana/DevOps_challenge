@@ -103,6 +103,10 @@ steps:
 
 - name: Delete S3 bucket
   image: alesson23/terraforandansible:1.0.0
+  environment:
+    AWS_ACCESS_KEY_ID:
+      from_secret: aws_access
+    AWS_SECRET_ACCESS_KEY:
   commands:
   - aws s3 rb s3://challenge-backend --force
   when:
