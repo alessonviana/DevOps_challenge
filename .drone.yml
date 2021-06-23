@@ -108,7 +108,7 @@ steps:
       from_secret: aws_access
     AWS_SECRET_ACCESS_KEY:
   commands:
-  - aws s3 rb s3://challenge-backend --force
+  - aws s3api rb s3://challenge-backend --force
   when:
     branch:
       - delete_infra
