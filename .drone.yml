@@ -88,7 +88,12 @@ steps:
       from_secret: aws_access
     AWS_SECRET_ACCESS_KEY:
       from_secret: aws_secret
+    PRIVATE_KEY:
+      from_secret: private_key
   commands:
+  - mkdir -p /home/root/.ssh/
+  - echo "$PRIVATE_KEY" > /home/root/.ssh/id_rsa
+  - chmod 600 /home/root/.ssh/id_rsa
   - cd ./infra
   - terraform init
   - terraform destroy -auto-approve
@@ -98,7 +103,18 @@ steps:
 
 - name: Delete S3 bucket
   image: alesson23/terraforandansible:1.0.0
+  environment:
+    AWS_ACCESS_KEY_ID:
+      from_secret: aws_access
+    AWS_SECRET_ACCESS_KEY: 
+      from_secret: aws_secret
   commands:
+  - apt install curl -y
+  - apt update
+  - apt install python3-pip -y
+  - curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+  - unzip awscliv2.zip
+  - ./aws/install
   - aws s3 rb s3://challenge-backend --force
   when:
     branch:
