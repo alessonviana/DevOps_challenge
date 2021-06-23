@@ -91,7 +91,7 @@ steps:
     PRIVATE_KEY:
       from_secret: private_key
   commands:
-  - mkdir -p ~/.ssh/
+  - mkdir -p /home/root/.ssh/
   - echo "$PRIVATE_KEY" > /home/root/.ssh/id_rsa
   - chmod 600 /home/root/.ssh/id_rsag
   - cd ./infra
