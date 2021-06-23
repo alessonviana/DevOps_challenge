@@ -37,9 +37,9 @@ Default region name [None]: <Your region>
 - Your private key that you will use to connect to the instance.
 
 
-- 2.3 - You will need to create your pipeline configuration in a file named .drone.yml. This file should be at the root of your project on GitHub.
+### - You will need to create your pipeline configuration in a file named .drone.yml. This file should be at the root of your project on GitHub.
 
-- 2.4 - Steps:
+- 2.3 - Steps:
 ```bash
 - Install AWS CLI and create a bucket
 - Initialize aws plugin for terraform
