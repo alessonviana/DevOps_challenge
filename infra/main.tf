@@ -21,8 +21,8 @@ resource "aws_instance" "challenge_DevOps_Machine" {
     type        = "ssh"
     host        = self.public_ip
     port        = 22
-    user        = "ec2-user"
-    private_key = file("~/.ssh/id_rsa")
+    user        = "ubuntu"
+    private_key = file("/home/root/.ssh/id_rsa")
     agent       = false
 
   }
