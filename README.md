@@ -19,13 +19,13 @@ The process starts as soon as you have a change in the repository on GitHub, the
 ## How does it work?
 
 - Terraform creates the AWS instances, Security Group, Volumes and a Bucket.
-- Ansible installs and configure Docker.
+- Ansible installs and configures Docker.
 - Ansible pulling and runnig the container .
 - The Drone CI uses a Docker container that I have created with Terraform and Ansible there.
 
 ## 1 - Running terraform locally
 
-- 1.1 - Configure your AWS credentions
+- 1.1 - Configure your AWS credentials
 ```bash
 $ aws configure
 AWS Access Key ID [None]: <Access Key ID>
@@ -68,7 +68,7 @@ Default region name [None]: <Your region>
 
 
 ### 4 - Test your monitoring.
-- Open your browser and enter your public ip provided in the terraform pipeline more the aplication port. In this case, we will use netdata that runs on port 19999.
+- Open your browser and enter your public ip provided in the terraform pipeline plus the aplication port. In this case, we will use netdata that runs on port 19999.
 
 
 
